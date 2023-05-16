@@ -1,0 +1,221 @@
+
+     @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+     @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Batang&family=Nanum+Myeongjo:wght@400;700;800&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Yeon+Sung&display=swap');
+
+    #ff1{
+      font-family: "궁서체";
+    }
+
+    #ff2{
+      font-family: "굴림체";
+    }
+
+    /* 글꼴이 없는 경우를 대비해
+      , 를 이용하여 여러글꼴을 나열할 수 있음
+      (없는 글꼴은 기본글꼴로 표현)*/
+    #ff3{
+      font-family: "없는글꼴", "궁서>ㅇ<";  
+    }
+    
+    /* 웹폰드 (구글폰트) */
+    h1{
+      color:yellow;
+      font-family: 'Black Han Sans', sans-serif;
+    }
+    .web-font{
+        font-family: 'Yeon Sung', cursive;
+    }
+
+    /* * {
+      font-family: 'Black Han Sans', sans-serif;
+    } */
+    
+  /* ====================================================== */
+    #size1{
+      font-size: 16pt;
+    }
+    #size2{
+      font-size: 2em;
+    }
+    #size3{
+      font-size: 150%;
+    }
+    #fw1{
+      font-weight:bold; 
+    }
+    #fw2{
+      font-weight: lighter;
+    }
+    #fw3{
+      font-weight: 900;
+    }
+    
+   /* ====================================================== */
+   
+   #fv{
+     /* small-caps : 소문자를 대문자로(소문자 크기의) 바꿉니다
+     normar : 바꾸지 않음
+     */
+     font-variant: small-caps;
+    }
+    
+    #fs1{
+      font-style: italic;
+    }
+    #fs2{
+      font-style: oblique;
+    }
+  /* ====================================================== */
+  
+  /* 
+  글자색 변경하는 4가지 방법 
+  1. 색상이름 표기법
+  2. 16진수 표기법 
+  3. rgb/rgba 표기법  (a가 들어간건 투명도를 나타냄)
+  4. hsl/hsla 표기법  ( hsl : 색상, 채도, 밝기)
+  */
+  #c-name{
+    /* 
+    이름으로 지정
+    웹의 안전 색상 (모든 웹브라우저에서 표현할 수 있는 색상)
+    16가지 기본색상을 포함 216가지
+    
+    */
+    color:red;
+  }
+  #c-16{
+    /* #과 16진수 6자리를 합쳐서 색상을 표현
+    #f21fs5 : 앞에서부터 2개씩 묶어서 빨강, 초록, 파랑 색상의 양을 표시
+    (R(f2), G(1f), B(s5) )
+    (중복된 숫자인경우 3자리로 표현가능 #000000 => #000) */
+    color: #fff;    
+    background-color: #000;
+    padding: 20px;
+    font-size: 2em;
+  }
+  
+  #c-rgb{
+    /* 빨강, 초록, 파랑의 양을 0~255까지의 수로 표현 */
+    color:rgb(129, 205, 208);
+  }
+  #c-rgba{
+      /* a : 투명도
+      0(투명) ~ 1(불투명) */
+      
+      /* hsl방식
+      색상(hue), 채도(saturation), 밝기(light) */
+      color:rgb(255,0,0,0.2);
+      background-color: hsl(61, 49%, 68%);
+    }
+    
+  /* ====================================================== */
+  /* 테스트 줄 */
+  #td-none{
+    text-decoration:none;
+  }
+  #td-underline{
+    text-decoration: underline;
+  }
+  #td-overline{
+    text-decoration: overline;
+  }
+  #line-through{
+    text-decoration: line-through;
+  }
+  
+  li{
+    padding:20px;
+    /* 선의 두께, 선스타일, 색상 */
+    border:1px dotted #000;
+  }
+  a{
+    text-decoration: none;
+    color: #666;
+    font-size: 1.5em;
+  }
+  /* ====================================================== */
+  /* 그림자 */
+  #ts1{
+    font-size: 1.5em;
+    font-weight:900;
+    color:peru;
+    text-shadow: 3px 3px 3px black;
+    background-color: #246;
+  }
+  
+  #ts2{
+    font-size: 2em;
+    font-weight: 600;
+    color:#fff;
+    text-shadow: -5px -2px 15px seagreen;
+  }
+  #ts3{
+    font-size: 2em;
+    font-weight: 900;
+    color: aqua;
+    text-shadow: 5px 10px darkblue;
+  }
+  /* ====================================================== */
+  /* 대소문자 */
+  #tt1{
+    text-transform:none;
+  }
+  #tt2{
+    text-transform: capitalize;
+  }
+  #tt3{
+    text-transform: uppercase;
+  }
+  #tt3{
+    text-transform: lowercase;
+  }
+  /* ====================================================== */
+  /* 줄간격 line-height */
+  .lh1{
+    font-size: 1em;
+    /* 줄간격 */
+    line-height: 1em;
+
+    /* 텍스트 가로정렬 */
+    text-align: left;
+  }
+    .lh2{
+      font-size: em;
+      line-height: 2em;
+      text-align: right;
+    }
+    .lh3{
+      font-size: em;
+      line-height: 0.3em;
+      text-align: center;
+    }
+    .lh4{
+      font-size: em;
+      line-height: 3em;
+
+      /* 양쪽정렬 */
+      text-align: justify;
+    }
+    
+    /* ====================================================== */
+    /* 순서없는 목록 스타일 */
+    /* style='list-style-type: disc; list-style-position: inside;'
+    style='list-style-type: disc;'
+    style='list-style-type: none;'
+    style='list-style-image: url(images/dot.png);' */
+
+
+    table{
+      /* 캡션의 위치 (기본값은 top)*/
+      caption-side:bottom;
+
+      /* 테두리 검정색 실선으로 표시 */
+      border: 1px solid #999;
+
+      /* 테두리를 한 줄로 표시 */
+      border-collapse: collapse;
+    }
+    tr, td, th{
+      border: 1px dotted #999;
+      padding: 10px;
+    }

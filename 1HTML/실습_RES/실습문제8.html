@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>납품관리</title>
+</head>
+<body>
+    <form>
+        <h1>납품관리</h1>
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <ol>
+                <li>
+                    <label>납품자명 : 
+                    <input type="text" name="name" id="name" 
+                                placeholder='name'></label>
+                </li>
+                <li>
+                    <label for="email">email : 
+                    <input type="email" name="email" id="email" 
+                                placeholder='answs@naver.com'></label>
+                </li>
+                <li>
+                    <label for="url">홈페이지 : 
+                    <input type="url" name="url" id="url" 
+                                placeholder='http://' value='http://'></label>
+                </li>
+            </ol>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>납품 정보</legend>
+            <ul>
+                <li>
+                    <label for="pName">
+                    상품명 : <input type="text" name="pName" id="pName">
+                    </label>
+                </li>
+                <li>
+                    <label for="pAmount">
+                    납품수량 : <input type="number" name="pAmount" id="pAmount"
+                                placeholder='최소수량 100' min='100'>
+                    </label>
+                </li>
+                <li>
+                    <label for="pg">
+                    납품등급 : <input type="range" name="pg" id="pg">
+                    </label>
+                </li>
+                <li>
+                    <label for='bigo'>
+                    기타사항 : <textarea name='bigo' id='bigo'></textarea>
+                    </label>
+                </li>
+
+            </ul>
+        </fieldset>
+        <br>
+        <input type="submit" value="send message">
+    </form>
+
+</body>
+</html>

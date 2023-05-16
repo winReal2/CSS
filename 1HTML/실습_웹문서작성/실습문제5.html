@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>예약 접수</title>
+	<style>
+		ul {
+			list-style:none;
+		}
+		li {
+			line-height:50px;
+		}
+		label {
+			width:60px;
+			float:left;
+		}
+	</style>
+</head>
+<body>
+	<h1>예약 정보</h1>
+	hint. 목록태그를 이용하면 들여쓰기가 가능 합니다
+	<!--form태그의 역할 :  폼을 서브밋! 서버에 어떤 페이지 요청을 할때 데이터를 들고가겠다는 뜻
+			action에는 이동하고자 하는 페이지 이름-->
+		<form action='실습문제6.html' method='get'>
+			<ul>
+				<li>이름 <input type='text' id='name' name='name'></li> <!--ul >> list-style:none; 떄문에 점이 안나옴-->
+				<li>휴대폰 <input type='tel' id='phone' name='phone'></li>  <!--id는 안가져감!! name속성을 줘야함!, 같이 지정도 됨-->
+				<li>이메일 <input type='eamil' id='email' name='email'></li>
+				<li><input type="submit" value="예약하기"></li>
+			</ul>	
+		
+		</form>
+</body>
+</html>

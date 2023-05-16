@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    코드를 작성할 명령문장을 작성
+    회원가입화면 만들어줘
+    이메일
+    이름
+    생년월일
+
+
+    문장선택후 단축키를 이용해서 코드를 생성
+    ctrl + alt + shift + z
+
+    생성된 코드를 선택 한 후 다시 명령을 입력 하기 위해 단축키 입력
+    ctrl + alt + shift + , 
+
+    스크립트로 유효성검사 해줘입력
+
+
+    <script>
+    const form = document.querySelector('form');
+    const email = document.getElementById('email');
+    const name = document.getElementById('name');
+    const dob = document.getElementById('dob');
+    
+    form.addEventListener('submit', (e) => {
+        e.preventDefault(); // prevent form submission
+        
+        if (!validateEmail(email.value)) {
+            alert('Please enter a valid email address');
+            return;
+        }
+        
+        if (!validateName(name.value)) {
+            alert('Please enter a valid name');
+            return;
+        }
+        
+        if (!validateDOB(dob.value)) {
+            alert('Please enter a valid date of birth');
+            return;
+        }
+        
+        // form validation passed, submit form
+        form.submit();
+    });
+    
+    function validateEmail(email) {
+        // email validation logic
+    }
+    
+    function validateName(name) {
+        // name validation logic
+    }
+    
+    function validateDOB(dob) {
+        // date of birth validation logic
+    }
+</script>
+</body>
+</html>

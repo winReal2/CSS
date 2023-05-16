@@ -1,0 +1,183 @@
+*{
+    margin: 0px;
+    list-style: none;
+    text-decoration: none;
+    color: #333;
+    box-sizing: border-box;
+}
+.wrap{
+    width: 1000px;
+    height: 700px;
+    /* background-color: rgb(247, 209, 160); */
+    /* 큰박스 가운데 정렬 */
+    margin: 0px auto;
+}
+.wrap header{
+    width: 100%;
+    height: 130px;
+    /* background-color: rgb(64, 16, 155); */
+}
+
+header .logo{
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    /* background-color: rgb(255, 0, 191); */
+}    
+header .logo .logo_left{
+    float: left;
+    width: 200px;
+    text-align: center;
+}
+header .logo .mainlogo{
+    float: left;
+    width: 800px;
+    text-align: center;
+}
+/* ========================================================= */
+
+header nav ul{
+    /* ul의 패딩제거 */
+    padding: 0px;
+}
+header nav ul li{
+    width: 25%;
+    height: 30px;
+    /* 가로로 배치하고 싶을때 */
+    float: left;
+    background-color: green;
+    /* border: 1px solid black; */
+}
+/* a태그의 요소의 영역을 넓혀서 클릭의 범위를 넓게! */
+/* a태그는 인라인 속성이라서 너비랑 높이줘도 안늘어남 그래서
+    display를 inline-block으로 변경 */
+header nav ul li a{
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    /* border: 1px solid orange; */
+}
+header nav ul li a:hover{
+    background-color: darkgreen;
+}
+
+
+main{
+    width: 100%;
+    height: 600px;
+    /* background-color: rgb(122, 77, 20); */
+    margin-top: 10px;
+}
+#leftSide{
+    width: 200px;
+    height: 100%;
+    /* background-color: pink; */
+    float: left;
+}
+#mainContent{
+    width: 550px;
+    height: 100%;
+    float: left;
+    /* background-color: rgb(224, 100, 120); */
+}
+#rightSide{
+    width: 250px;
+    height: 100%;
+    float: left;
+    /* background-color: rgb(86, 193, 255); */
+}
+main #leftSide img{
+    width: 100%;
+    height: 100%;
+}
+
+/* ============================================================= */
+/* 로그인 박스 */
+#login_wrap{
+    width: 100%;
+    height: 120px;
+    margin-bottom: 10px;
+    /* position: relative;
+    top: 100px;
+    left: 100px; */
+    /* background-color: antiquewhite; */
+    /* 범위를 벗어나면 숨김 */
+    /* overflow: hidden; */
+}
+
+#login_form{
+    /* 로그인 폼 요소에 하이값을 줬을때 안줬을때 차이 확인 높이 안주면 자식요소도 높이X*/
+    /* 나머지 20%에 회원가입, 아이디찾기, 비밀번호찾기가 들어옴 */
+    height: 80%;
+}
+
+#login_form_input{
+    width: 65%;
+    /* px로 지정할 경우 부모와 상관없이 지정
+    %로 높이값을 지정할 경우 부모의 높이가 지정되어 있지 않으면
+    높이가 지정이 안됨 */
+    height: 100%;
+    float: left;
+    background-color: rgb(206, 255, 196);
+}
+
+#login_form_input > input{
+    height: 50%;
+    width: 100%;
+}
+#login_form_btn{
+    width: 30%;
+    height: 80%;
+    margin: 5px;
+    float: right;
+    /* text-align: right; */
+    background-color: rgb(163, 233, 255);
+}
+#login_form_btn > input{
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+}
+#login_link{
+    text-align: center;
+}
+
+/* 한칸띄우면 자식, 손자까지 */
+#login_link a{
+    text-decoration: none;
+    color: black;
+    font-size: 0.8em;
+    /* 가운데 정렬하고 싶으면 부모를 가운데 정렬해야함! */
+    /* text-align: center; */
+
+
+}
+main #rightSide #banner {
+    width: 250px;
+    margin-bottom: 10px;
+}
+main #rightSide #chat{
+    width: 250px;
+
+}
+main #mainContent ul{
+    padding: 0px;
+    width: 550px;
+    height: 500px;
+    /* background-color: blueviolet; */
+}
+/* 메인 4가지 사진 사이즈 조절 */
+main #mainContent ul li{
+    width: 50%;
+    height: 50%;
+    float: left;
+    padding: 10px;
+    text-align: center;
+}
+main #mainContent ul li img{
+    width: 100%;
+
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 선택자 우선순위</title>
+  <style> /*스타일 시트를 외부로 뺄 수 있다.*/
+    /*구글 폰트*/
+    @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap');
+
+    h1{
+      color:yellowgreen;
+      /*글꼴*/
+      font-family: 'Noto Serif KR', serif;
+    }
+    h1{
+      color: rgb(161, 9, 199);
+      background-color: rgb(207, 173, 240);
+    }
+    #test1{
+    background-color: pink;
+    }
+    .pinkBg{
+      background-color: rgb(255, 222, 250);
+    }
+    p{
+      /* background-color: red !important; */
+      /* color: white !important; */
+      font-size: 2em;
+    }
+    .red{
+      color:red;
+      font-weight: 900;
+    }
+
+  </style>
+
+</head>
+<body>
+  <h1 class='pinkBg'>선택자 우선순위</h1>
+  
+  <p>
+    기본적으로 위에서 아래로 적용
+    같은 요소에 다양한 선택자로 CSS 속성이 설정된 경우
+    우선순위에 따라 스타일이 적용된다
+    <br>
+    <span class='red'>
+      태그 선택자(h1) < 클래스 선택자(.) < id 선택자 (#)< 인라인 선택자 (채그에 바로(직접) 적음)< !important
+    </span>
+  </p>
+
+  <div id='test1' class='pinkBg' style='background-color:gold;'>우선순위 테스트1</div>
+  <p id='test2' class='pinkBg'>우선순위 테스트2</p>
+
+
+
+</body>
+</html>

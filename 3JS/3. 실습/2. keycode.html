@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>키 코드</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    #result {
+      text-align: center;
+      font-weight:bold;
+      font-size:1.5em;
+      color:crimson;
+    }
+  </style>
+</head>
+<body>
+  <h1>키보드의 아무 키나 눌러보세요</h1>
+
+  <div id="result"></div>
+
+  <script>
+    //getElementsByTagName : 노드리스트가 반환되서 몇번째 요소인지 선택
+    // let body = document.getElementsByTagName('body')[0];
+    let body = document.querySelector('body');   //하나만 반환
+    // e는 이벤트 객체
+    // 하나의 요소에 이벤트를 적용
+    body.addEventListener('keydown', function(e){
+      result.innerHTML = `code:${e.code}<br>
+                          key:${e.key}<br>
+                          keyCode:${e.keyCode}`;
+      console.log(e.code);
+      console.log(e.key);
+
+      console.log(e.keyCode);
+    });
+  </script>
+</body>
+</html>

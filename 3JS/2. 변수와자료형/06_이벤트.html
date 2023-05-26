@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <script src='06_이벤트.js'></script>
+</head>
+<body>
+    <h1>이벤트</h1>
+    <p>웹 브라우저나 사용자가 행하는 동작</p>
+    <p>웹 문서 영역안에서 이뤄지는 동작</p>
+
+    <ul>
+        <li>마우스이벤트</li>
+        <li>키보드이벤트</li>
+        <li>문서로딩이벤트</li>
+        <li>폼이벤트</li>
+    </ul>
+
+
+    <h2>1. 이벤트 모델의 종류</h2>
+    <h3>1) 고전 이벤트 모델</h3>
+    <p>
+        요소 객체가 가지고 있는 이벤트 속성에 이벤트 핸들러를 연결하는 방법이다.<br>
+        이벤트 객체를 제거하려면 해당 이벤트 속성값에 null을 대입하면 된다.<br>
+        (이벤트 중복작성 X)
+    </p>
+    <button id='btn1'>실행 완료</button>
+    
+    <h3>2) 인라인 이벤트 모델</h3>
+    <button onclick='alert("안녕하세요");'>실행 완료</button>
+    
+    <h3>3) 표준 이벤트 모델</h3>
+    <p>
+        w3c에서 공식적으로 지정한 이벤트 모델<br>
+        한 번에 여러개의 이벤트 핸들러 설정이 가능하다.<br>
+        (월드 와이드 웹 컨소시엄World Wide Web Consortium) : 국제 웹 표준화 기구
+    </p>
+    <button id='btn3'>실행 완료</button>
+    
+    <h2>2. 이벤트가 발생한 요소 객체에 접근하는 방법</h2>
+    <!-- 왜 접근하는지 알아야하냐면! 
+        이벤트가 발생한 요소객체를 알아야 자식,손자 객체를 찾을 수 있고, 
+        이벤트가 어떤게 걸려있는지도 파악할 수 있기 때문이다
+        이벤트가 어디서 발생했는지도 알아야 함!
+        상위요소로도 갈 수 있음
+        여러가지 속성값 변경가능, 자식객체 접근 가능-->
+    <p>
+        이벤트가 발생한 요소 객체는 내부적으로
+        이벤트 발생 정보를 담고 있는 객체를 매개변수로 전달한다.<br>
+        이벤트 객체를 통해서 해당 요소 객체에 접근이 가능하고 
+        콜백 함수의 종류에 따라 this로 접근이 가능하다.<br>
+        
+        *콜백함수 : 다른 코드의 인수로서 넘겨주는 실행가능한 코드
+    </p>
+    <button id='btn4'>고전 이벤트 방식</button>
+    <button onclick='test();'>인라인 이벤트 방식</button>
+    <button id='btn5'>표준 이벤트 방식</button>
+    
+
+    <h2>3. 태그별 기본적으로 가지고 있는 이벤트 제거</h2>
+    <p>
+        기본 이벤트를 가지고 있는 요소<br>
+        a : 클릭 시 href 속성에 제시되어 있는 페이지를 요청하는 기본 이벤트 보유<br>
+        submit : 클릭 시 입력 양식을 서버에 제출 후 서버로부터 페이지를 다시 로딩하는(받아오는) 기본 이벤트 보유<br>
+
+        기본 이벤트가 있는 요소에 onclick 이벤트를 설정하면
+        이 코드(onclick)가 <mark>우선적으로 먼저 실행</mark>되고 그 다음에 기본 이벤트가 실행된다<br>
+
+        태그에 기본적으로 설정되어 있는 이벤트를 제거하기 위해서는
+        이벤트 핸들러의 <mark>return값을 false</mark>로 하면된다.<br>
+
+        <pre>
+        [실행순서]
+        1. 이벤트 핸들러
+            이벤트 핸들러의 반환값이 false이면 기본 이벤트를 실행하지 않는다!!
+        2. 기본 이벤트
+        </pre>
+
+        <!-- 누르면 바로이동 -->
+        <a href="http://www.naver.com">네이버로 이동</a>
+        <!-- 알림창 뜨고 이동 -->
+        <a href="http://www.naver.com" onclick='alert("네이버 바로가기")'>네이버로 이동</a>
+        <!-- 알림창 떴지만 이동은 안함 -->
+        <a href="http://www.naver.com" onclick='alert("네이버 바로가기"); return false;'>네이버로 이동</a>
+        <!-- 네이버로 이동하고 싶지 않으면 -->
+        <a href="http://www.naver.com" onclick='return false;'>네이버로 이동</a>
+    </p>
+
+    <h3>1) 기본 이벤트 제거 1</h3>
+    <!-- 버튼 말고 폼태그에 달아줄수도 있음 (false값을 passwordCheck에 받아와서 다시 리턴해줘야함)-->
+    <form onsubmit='return passwordCheck()'>
+        <label for="pass1">비밀번호 : </label>
+        <input type="password" name='pass1' id='pass1'><br>
+        <label for="pass2">비밀번호 확인: </label>
+        <input type="password" name='pass2' id='pass2'><br><br>
+
+        <!-- return을 함수앞에 적어줌 -->
+        <!-- <input type="submit" value='제출' onclick='return passwordCheck()'> -->
+        <input type="submit" value='제출'>
+        <!-- 제출버튼을 누르면 폼이전송
+            전송된걸 알려면 주소창 보면된다 -->
+    </form>
+
+    <h3>2) 기본 이벤트 제거 2</h3>
+    <form>
+        <label for="userId">아이디 : </label>
+        <input type="text" name='userId' id='userId'><br>
+        영문자, 숫자로만 총 5~12자 사이로 입력해주세요<br><br>
+
+        <input type="submit" id='submit' value='회원가입'>
+    </form>
+
+</body>
+</html>

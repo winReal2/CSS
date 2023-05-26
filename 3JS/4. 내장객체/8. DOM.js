@@ -22,9 +22,23 @@ window.onload = function(){
     });
 // =======================================================================
 
+    // 텍스트 노드가 없는 요소 노드 생성
+    // 요소의 속성을 설정 하는 방법!
+    btn2.addEventListener('click', function(){
 
-    // area2.appendChild(imgNode);
-    // area2.innerHTML += '<img src="images/morning.jpg" width="150px" height="100px">';
+        // img 요소 노드 생성
+        let imgNode = document.createElement('img');
+
+        // 속성 설정 하는 방법
+        imgNode.src = 'images/morning.jpg';
+        imgNode.setAttribute('width','150px');
+        imgNode.setAttribute('height', '100px');
+
+        // 연결(자식요소로 추가)
+        area2.appendChild(imgNode);
+
+        area2.innerHTML += '<img src="images/morning.jpg" width="150px" height="100px">'
+    });
 
 // ===========================================================
 // 이해안되서 한번 더 공부

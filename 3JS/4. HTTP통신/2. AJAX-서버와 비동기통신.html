@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON</title>
+  <link rel="stylesheet" href="css/student.css">
+</head>
+<body>
+  <div id="container">
+    <h1>수강생 명단</h1>
+
+    <div id="result"></div>
+  </div>
+  <script>
+
+    //1. 객체 생성
+    let xhr = new XMLHttpRequest();
+    //2.어떤 페이지 요청할 것인지
+    xhr.open('get', 'json/student-2.json');
+    xhr.send();
+
+    // state가 변경될때마다 함수 실행
+    xhr.onreadystatechange = function(){
+      
+      // 서버로부터 잘 가져왔다면
+      if(xhr.readyState === 4 && xhr.status == 200){
+        
+        let res = xhr.responseText;
+        resObj = JSON.parse(res);
+
+        let div = document.querySelector('#result');
+        for(obj of resObj){
+          div.innerHTML += `
+            <h1>${obj.name}</h1>  
+            <ul>
+              <li>${obj.major}</li>  
+              <li>${obj.grade}</li>  
+            </ul>
+          `;
+        }
+    }
+  }
+
+
+  </script>
+
+</body>
+</html>

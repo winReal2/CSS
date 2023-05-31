@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='5.AJAX-공공데이터활용-Form.js'></script>
+    <style>
+        *{
+            list-style: none;
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 표형식으로 만들어주면 보기 편함 -->
+    <form id='campForm'>
+        <!-- 불필요한 것들은 hidden처리, 하지만 개발시에는 히든처리하면 불편 -->
+        <div class='hidden'>
+        serviceKey   <input type="text" name='serviceKey' value='G9Jrwyt4kK616SoR09ah0P%2F3EFkRpvatTejIo%2F8sCTCx2NdIxCGsqCR3xvBC%2FCaKhpLGiiNMsFg7%2BimBBj7CTg%3D%3D'><br>
+        MobileOS     <input type="text" name='MobileOS' value='ETC'><br>
+        MobileApp    <input type="text" name='MobileApp' value='AppTest'><br>
+        mapX         <input type="text" name='mapX' value='128.6142847'><br>
+        mapY         <input type="text" name='mapY' value='36.0345423'><br>
+        <!-- _type : json형식으로 받아오기 위해 _type에 json값을 넣어 줍니다  안넣어주면 json형식이 아님 (파싱안됨) -->
+        _type        <input type="text" name='_type' value='json'><br><br>
+        </div>
+
+        numOfRows    <input type="text" name='numOfRows' value='100'> 한 페이지 결과수 <br>
+        pageNo       <input type="text" name='pageNo' value='1'><br>
+        radius       <input type="text" name='radius' value='20000'><br>
+        <button id='btnCampInfo'>캠핑장 정보 조회</button>
+    </form>
+    <div id='result'></div>
+
+</body>
+</html>

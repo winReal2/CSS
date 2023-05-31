@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>지도 생성하기</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c684a4b3af7879c826df2a01d78ccc4a"></script>
+</head>
+<body>
+<!-- 지도를 표시할 div 입니다 -->
+<div id="map" style="width:100%;height:350px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c684a4b3af7879c826df2a01d78ccc4a"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+// ===========================<6. 카카오지도 복사 ↑↑↑>======================
+// 현재위치 요청
+if("geolocation" in navigator){ 
+        // getCurrentPosition(성공콜백, 오류콜백)
+        navigator.geolocation.getCurrentPosition((position) => {
+        doSomething(position.coords.latitude, position.coords.longitude);
+        });
+      } else {
+        // 위치정보 사용 불가능
+        alert ('geolocation 사용 불가능')
+      }
+
+function doSomething(latitude, longitude){ 
+// 지도 중심좌표를 현재위치로 변경
+var locPosition = new kakao.maps.LatLng(latitude, longitude);
+map.setCenter(locPosition);  
+
+// 마커를 생성합니다
+var marker = new kakao.maps.Marker({  
+    // map: map, (marker.setMap(map);가 없으면 map:map;있어야함!)
+    position: locPosition
+}); 
+// 마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

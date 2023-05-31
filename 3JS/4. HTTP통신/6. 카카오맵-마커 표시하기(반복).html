@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>지도 생성하기</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c684a4b3af7879c826df2a01d78ccc4a"></script>
+    <script src='6. 카카오맵-마커 표시하기(반복).js'></script>
+</head>
+<body>
+<!-- 지도를 표시할 div 입니다 -->
+<div id="map" style="width:100%;height:350px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c684a4b3af7879c826df2a01d78ccc4a"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+
+//1.현재 위치 (geolocation이용)
+if("geolocation" in navigator){ 
+        // (성공콜백, 오류콜백, 옵션)
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                 doSomething(position.coords.latitude, position.coords.longitude);
+        }
+        , (err) => console.log(err)
+        );
+      } else {
+        alert ('geolocation 사용불가능');
+      }
+
+function doSomething(latitude, longitude){
+    // 현재 위치정보를 지도에 세팅 (지도세팅 : 중심좌표잡아주고 마커주라는 뜻)
+
+    // 마커포지션(위도, 경도) 생성 (마커가 표시될 위치)
+    //나의 현재위치로
+    var markerPosition  = new kakao.maps.LatLng(latitude, longitude); 
+
+    // 마커를 생성합니다 (웹에다 마커 표시)
+    var marker = new kakao.maps.Marker({
+        // map:map,
+        position: markerPosition
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    //map:map,
+    marker.setMap(map);
+
+    // 지도 중심좌표를 접속위치로 변경합니다
+    map.setCenter(markerPosition);     
+
+}
+
+
+
+</script>
+</body>
+</html>

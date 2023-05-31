@@ -14,7 +14,7 @@ window.onload = function(){
     register.addEventListener('click', function(e){
 
         // 배열형태로 들어있는것을 확인할 수 있음
-        console.log(jsObj);
+        // console.log(jsObj);
         
         // 기본이벤트(submit) 제거(화면이 전송되는 걸 막기위해)
         e.preventDefault();

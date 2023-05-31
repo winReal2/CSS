@@ -30,16 +30,17 @@
                 // 객체로 전환
                 let jsObj = JSON.parse(xhr.responseText);
                 console.log(jsObj);
+                // 아래부분 복사해서 5.공공데이터 활용에서 사용
                 let itemArr = jsObj.response.body.items.item;
 
                 let resDiv = document.querySelector('#result');
                 resDiv.innerHTML += '<ul>';
 
                     for(item of itemArr){
-                        resDiv += `
+                        resDiv.innerHTML += `
                             <li>
                                 <h1>${item.facltNm}</h1>
-                                <p>${item.firstImageUrl}</p>
+                                <p><img src = "${item.firstImageUrl}" alt="캠핑이미지"></p>
                                 <p>${item.intro}</p>    
                             </li>
                         `;

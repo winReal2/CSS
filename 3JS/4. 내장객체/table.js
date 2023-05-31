@@ -21,8 +21,8 @@ window.onload = function(){
         let major = document.querySelector('#major').value;
 
         // 중간에 확인하는 습관!
-        console.log('userNmae', userName);
-        console.log('major', major);
+        // console.log('userNmae', userName);
+        // console.log('major', major);
 
         //테이블이 여러개일때를 고려해 테이블의 아이디로 접근해서 tbody로 감
        let tbody = document.querySelector('#attendant > tbody');
